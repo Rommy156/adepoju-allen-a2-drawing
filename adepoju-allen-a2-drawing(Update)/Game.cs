@@ -14,6 +14,8 @@ namespace Game10003
     /// </summary>
     public class Game
     {
+
+        Vector2 PaintPos = new (100,50);
         // Place your variables here:
         //lets define radius and position of wheel
         float[] wheelRadius = { 50, 30 };
@@ -31,7 +33,7 @@ namespace Game10003
             Window.SetSize(800, 600);
             Window.SetTitle("2D Interactive");
             Window.TargetFPS = 10;
-            //lets set background color
+            //lets set background properties
             //lets set an array
             string text = "DRIVER";
             Console.Write(text[0]);
@@ -51,21 +53,16 @@ namespace Game10003
         ///     Update runs every frame.
         /// </summary>
         public void Update()
-        {
-            //lets loop our speed
-            {
-                for (int i = 50; i < 60; i++)
-                    Console.WriteLine($"{i}km/ph");
-
-
-            }
-            { 
-          
-
-                    //lets set window background colour
+        { //lets set window background colour
                     Window.ClearBackground(Color.Gray);
+            //lets draw the sun
+            Draw.LineSize = 0; Draw.Circle(750, 50, 35);
+           
+            Draw.FillColor = Color.Black;
+            Draw.LineColor = Color.Yellow;
 
-
+            Draw.LineColor = Color.Black;
+            Draw.LineSize = 8;
                     //lets draw the bodyframe of the car
                     Draw.PolyLine(100, 300, 100, 200, 200, 100, 500, 100, 600, 200, 750, 220, 750, 300, 100, 300);
                     Draw.Quad(100, 200, 200, 100, 500, 100, 600, 200);
@@ -74,14 +71,40 @@ namespace Game10003
                     Draw.LineColor = Color.Black;
                     Draw.LineSize = 2;
 
-                    //lets draw the road
-                    Draw.FillColor = Color.DarkGray;
-                    Draw.Rectangle(0, 350, 800, 600);
-                    Draw.Rectangle(100, 450, 150, 50);
-                    Draw.FillColor = Color.Yellow;
-                    //lets declare  wheel1
+          
+            //lets loop our speed and a message
+            {
+             
+                string[] message = ["Hello Driver", "Drive Safe"];
+                foreach (string name in message) 
+                    Console.WriteLine(name);
+                bool condition = false;
+                while (condition) { Console.WriteLine("Obey Traffic Rules"); }
+                {
+                    
+                } 
 
-                    Vector2 wheel1Pos = new Vector2(200, 300);
+            }
+            {
+
+
+
+
+                //lets draw the road
+                Draw.FillColor = Color.DarkGray;
+                Draw.Rectangle(0, 350, 800, 600);
+                Draw.Rectangle(100, 450, 150, 50);
+                Draw.Rectangle(350, 450, 150, 50);
+                Draw.Rectangle(600, 450, 150, 50);
+            }
+           
+                Vector2 PaintPos = new Vector2();
+                PaintPos += new Vector2(0, 20f * (float)Math.Sin(Time.SecondsElapsed));
+                PaintPos = Vector2.Normalize(PaintPos);
+            
+                //lets declare  wheel1
+
+                Vector2 wheel1Pos = new Vector2(200, 300);
                     Vector2 radiusLine = new Vector2(1, 0);
                     radiusLine.X = 10f * (float)Math.Cos(Time.SecondsElapsed);
                     radiusLine.Y = 10f * (float)Math.Sin(Time.SecondsElapsed);
@@ -107,51 +130,52 @@ namespace Game10003
                     float x = Input.GetMouseX();
                     float y = Input.GetMouseY();
 
-                    //lets make the left mouse click to restart wheel color
+                    //lets make the left mouse click to restart wheel 
                     {
                         if (Input.IsMouseButtonPressed(MouseInput.Left)) ++Time.SecondsElapsed;
                         Draw.FillColor = Random.Color();
                         Draw.Circle(550, 300, 50);
                     }
-                    //lets make the space button on the keyboard change the color
+                    //lets make the space button on the keyboard go fast
 
-                    if (Input.IsMouseButtonPressed(MouseInput.Left)) ++Time.SecondsElapsed;
+                    if (Input.IsKeyboardKeyDown(KeyboardInput.Space)) ++Time.SecondsElapsed;
 
                     Draw.Circle(250, 300, 50);
 
-
-                    
-
-                        Draw.FillColor = Color.Clear;
-                        if (Input.IsKeyboardKeyDown(KeyboardInput.Space))
-                        {
-                            Draw.Circle(550, 300, 30);
-                            Draw.Circle(250, 300, 30);
-
-                            Draw.Circle(550, 300, 50);
-                            Draw.Circle(550, 300, 50);
-
-                            Draw.FillColor = Random.Color();
-                           //air resistance
-                            Draw.LineSize = 1.5f;
-                            Draw.Line(200, 100, 0, 150);
-                            Draw.Line(100, 200, 0, 225);
-                            Draw.Line(100, 300, 0, 305);
-                            Draw.LineSize = 8;
+            for (int i = 50; i < 60; i++)
 
 
-                        }
-                        else
-                        {
-                            Draw.Circle(550, 300, 50);
-                            Draw.Circle(250, 300, 50);
-                            Draw.Circle(550, 300, 30);
-                            Draw.Circle(250, 300, 30);
-                            Draw.LineSize = 8;
-                            
+                Draw.FillColor = Color.Clear;
+            if (Input.IsKeyboardKeyDown(KeyboardInput.Space))
+            {
+                Draw.Circle(550, 300, 30);
+                Draw.Circle(250, 300, 30);
+
+                Draw.Circle(550, 300, 50);
+                Draw.Circle(550, 300, 50);
+                Draw.FillColor = Random.Color();
 
 
-                        }
+                //air resistance
+                Draw.LineSize = 1.5f;
+                Draw.Line(200, 100, 0, 150);
+                Draw.Line(100, 200, 0, 225);
+                Draw.Line(100, 300, 0, 305);
+                Draw.LineSize = 8; Draw.FillColor = Color.Yellow;
+
+                for (int i = 40; i <= 60; i++)
+                    Console.WriteLine($"{i}km/ph");
+            }
+            else
+            {
+                Draw.Circle(550, 300, 50);
+                Draw.Circle(250, 300, 50);
+                Draw.Circle(550, 300, 30);
+                Draw.Circle(250, 300, 30);
+                Draw.LineSize = 8;
+                Draw.FillColor = new Color(255, 164, 1); 
+
+                }
 
                         //lets draw rotating rim 1
 
@@ -178,20 +202,19 @@ namespace Game10003
                         Draw.Line(linePosition3, linePosition4);
 
                         Draw.LineColor = Color.Black;
-            } { 
+            } 
                     }
 
 
-            {
+            
                
                 
               
               
-              
 
             }
-           
-                }} } 
+          
+                
 
 
                     
