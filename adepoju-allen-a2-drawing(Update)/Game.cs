@@ -20,8 +20,20 @@ namespace Game10003
         {
             Window.SetSize(800, 600);
             Window.SetTitle("2D Interactive");
-            Window.TargetFPS = 60;
+            Window.TargetFPS = 40;
+            //lets set background color
+            //lets set an array
+            string text = "DRIVER";
+            Console.WriteLine(text[0]);
+            Console.WriteLine(text[1]);
+            Console.WriteLine(text[2]);
+            Console.WriteLine(text[3]);
+            Console.WriteLine(text[4]);
+            Console.WriteLine(text[5]);
 
+         
+            
+                
 
         }
 
@@ -30,6 +42,25 @@ namespace Game10003
         /// </summary>
         public void Update()
         {
+            
+            Window.ClearBackground(Color.Gray);
+
+
+            //lets draw the bodyframe of the car
+            Draw.PolyLine(100, 300, 100, 200, 200, 100, 500, 100, 600, 200, 750, 220, 750, 300, 100, 300);
+            Draw.Quad(100, 200, 200, 100, 500, 100, 600, 200);
+
+            Draw.FillColor = Color.OffWhite;
+            Draw.LineColor = Color.Black;
+
+
+
+
+
+
+
+
+
 
         }
     }
