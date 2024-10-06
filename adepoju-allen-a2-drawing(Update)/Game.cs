@@ -70,6 +70,12 @@ namespace Game10003
                             radiusLine1.Y = 10f * (float)Math.Sin(Time.SecondsElapsed);
 
 
+            //lets draw the road
+            Draw.FillColor = Color.DarkGray;
+            Draw.Rectangle(0, 350, 800, 600);
+            Draw.LineSize = 2;
+
+
 
 
 
