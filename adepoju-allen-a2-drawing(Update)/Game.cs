@@ -54,22 +54,23 @@ namespace Game10003
         /// </summary>
         public void Update()
         { //lets set window background colour
-                    Window.ClearBackground(Color.Gray);
+            Window.ClearBackground(Color.Gray);
             //lets draw the sun
             Draw.LineSize = 0; Draw.Circle(750, 50, 35);
            
-            Draw.FillColor = Color.Black;
+            Draw.FillColor = new Color(10,15,25);
             Draw.LineColor = Color.Yellow;
 
             Draw.LineColor = Color.Black;
             Draw.LineSize = 8;
-                    //lets draw the bodyframe of the car
-                    Draw.PolyLine(100, 300, 100, 200, 200, 100, 500, 100, 600, 200, 750, 220, 750, 300, 100, 300);
-                    Draw.Quad(100, 200, 200, 100, 500, 100, 600, 200);
+            //lets draw the bodyframe of the car
+            Draw.PolyLine(100, 300, 100, 200, 200, 100, 500, 100, 600, 200, 750, 220, 750, 300, 100, 300);
 
-                    Draw.FillColor = Color.OffWhite;
-                    Draw.LineColor = Color.Black;
-                    Draw.LineSize = 2;
+            Draw.Quad(100, 200, 200, 100, 500, 100, 600, 200);
+
+            Draw.FillColor = Color.OffWhite;
+            Draw.LineColor = Color.Black;
+            Draw.LineSize = 2;
 
           
             //lets loop our speed and a message
@@ -146,34 +147,35 @@ namespace Game10003
 
 
                 Draw.FillColor = Color.Clear;
-            if (Input.IsKeyboardKeyDown(KeyboardInput.Space))
-            {
-                Draw.Circle(550, 300, 30);
-                Draw.Circle(250, 300, 30);
+                        if (Input.IsKeyboardKeyDown(KeyboardInput.Space))
+                        {
+                            Draw.Circle(550, 300, 30);
+                            Draw.Circle(250, 300, 30);
 
-                Draw.Circle(550, 300, 50);
-                Draw.Circle(550, 300, 50);
-                Draw.FillColor = Random.Color();
+                            Draw.Circle(550, 300, 50);
+                            Draw.Circle(550, 300, 50);
+                            Draw.FillColor = Random.Color();
+               
 
-
-                //air resistance
-                Draw.LineSize = 1.5f;
-                Draw.Line(200, 100, 0, 150);
-                Draw.Line(100, 200, 0, 225);
-                Draw.Line(100, 300, 0, 305);
-                Draw.LineSize = 8; Draw.FillColor = Color.Yellow;
+                    //air resistance
+                            Draw.LineSize = 1.5f;
+                            Draw.Line(200, 100, 0, 150);
+                            Draw.Line(100, 200, 0, 225);
+                            Draw.Line(100, 300, 0, 305);
+                            Draw.LineSize = 8; Draw.FillColor = Color.Yellow;
 
                 for (int i = 40; i <= 60; i++)
                     Console.WriteLine($"{i}km/ph");
             }
-            else
-            {
-                Draw.Circle(550, 300, 50);
-                Draw.Circle(250, 300, 50);
-                Draw.Circle(550, 300, 30);
-                Draw.Circle(250, 300, 30);
-                Draw.LineSize = 8;
-                Draw.FillColor = new Color(255, 164, 1); 
+                        else
+                        {
+                            Draw.Circle(550, 300, 50);
+                            Draw.Circle(250, 300, 50);
+                            Draw.Circle(550, 300, 30);
+                            Draw.Circle(250, 300, 30);
+                            Draw.LineSize = 8;
+                    Draw.FillColor = new Color(255,164,1); 
+ 
 
                 }
 
