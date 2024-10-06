@@ -17,7 +17,8 @@ namespace Game10003
         ///     Setup runs once before the game loop begins.
         /// </summary>
         public void Setup()
-        { Window.SetSize(800, 600);
+        {
+            Window.SetSize(800, 600);
             Window.SetTitle("2D Interactive");
             Window.TargetFPS = 60;
 
