@@ -94,6 +94,7 @@ namespace Game10003
                 //lets draw the road
                 Draw.FillColor = Color.DarkGray;
                 Draw.Rectangle(0, 350, 800, 600);
+                Draw.FillColor = Color.Yellow;
                 Draw.Rectangle(100, 450, 150, 50);
                 Draw.Rectangle(350, 450, 150, 50);
                 Draw.Rectangle(600, 450, 150, 50);
