@@ -1,8 +1,10 @@
 ﻿// Include code libraries you need below (use the namespace).
 using System;
 using System.ComponentModel.Design;
+using System.Drawing;
 using System.Numerics;
 using System.Reflection;
+using System.Security.Cryptography;
 
 // The namespace your code is in.
 namespace Game10003
@@ -13,7 +15,13 @@ namespace Game10003
     public class Game
     {
         // Place your variables here:
-
+        //lets define radius and position of wheel
+        float[] wheelRadius = { 50, 30 };
+        Vector2[] TireRims =
+        {
+          new  (250,300),
+          new (550,300)
+        };
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -34,7 +42,7 @@ namespace Game10003
             Console.Write(text[5]);
 
 
-
+            
 
 
         }
@@ -46,10 +54,15 @@ namespace Game10003
         {
             //lets loop our speed
             {
-                for (int i = 40; i < 60; i++)
+                for (int i = 50; i < 60; i++)
                     Console.WriteLine($"{i}km/ph");
 
 
+            }
+            { 
+          
+
+                    //lets set window background colour
                     Window.ClearBackground(Color.Gray);
 
 
@@ -64,7 +77,8 @@ namespace Game10003
                     //lets draw the road
                     Draw.FillColor = Color.DarkGray;
                     Draw.Rectangle(0, 350, 800, 600);
-
+                    Draw.Rectangle(100, 450, 150, 50);
+                    Draw.FillColor = Color.Yellow;
                     //lets declare  wheel1
 
                     Vector2 wheel1Pos = new Vector2(200, 300);
@@ -106,9 +120,7 @@ namespace Game10003
                     Draw.Circle(250, 300, 50);
 
 
-
-
-                    {
+                    
 
                         Draw.FillColor = Color.Clear;
                         if (Input.IsKeyboardKeyDown(KeyboardInput.Space))
@@ -120,6 +132,14 @@ namespace Game10003
                             Draw.Circle(550, 300, 50);
 
                             Draw.FillColor = Random.Color();
+                           //air resistance
+                            Draw.LineSize = 1.5f;
+                            Draw.Line(200, 100, 0, 150);
+                            Draw.Line(100, 200, 0, 225);
+                            Draw.Line(100, 300, 0, 305);
+                            Draw.LineSize = 8;
+
+
                         }
                         else
                         {
@@ -128,7 +148,7 @@ namespace Game10003
                             Draw.Circle(550, 300, 30);
                             Draw.Circle(250, 300, 30);
                             Draw.LineSize = 8;
-
+                            
 
 
                         }
@@ -157,18 +177,21 @@ namespace Game10003
                         Draw.Line(linePosition1, linePosition2);
                         Draw.Line(linePosition3, linePosition4);
 
-
-                    }
-
-
-                    {
-                        Draw.PolyLine(100, 400, 100, 450, 250, 450, 250, 400, 100, 400);
                         Draw.LineColor = Color.Black;
-                 
-
-
+            } { 
                     }
-                }} } } 
+
+
+            {
+               
+                
+              
+              
+              
+
+            }
+           
+                }} } 
 
 
                     
