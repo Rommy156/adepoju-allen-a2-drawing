@@ -1,4 +1,4 @@
-﻿// Include code libraries you need below (use the namespace).
+// Include code libraries you need below (use the namespace).
 using System;
 using System.ComponentModel.Design;
 using System.Drawing;
